@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Style.css">
+    <title>Resume Generator</title>
+</head>
+
+<body>
+    <!-- <div class="container" id="cv-form"> -->
+
+    <div class="container">
+        <!-- Your form content here -->
+        <h1 class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">By Infotrixs Internship(Web-05)</p>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Personal Information -->
+                <div class="form-group">
+                    <label for="nameField">Enter Your Name :</label>
+                    <input type="text" id="nameField" placeholder="Enter Your Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="contactField">Enter Contact Number :</label>
+                    <input type="text" id="contactField" placeholder="Enter Your Contact Number" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="addressField">Enter Address :</label>
+                    <textarea id="addressField" placeholder="Enter Your Address" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="emailField">Enter Email ID :</label>
+                    <input type="text" id="emailField" placeholder="Enter Your Email ID" class="form-control" />
+                </div>
+
+                <p class="text-secondary my-3">Important Links</p>
+                <div class="form-group mt-2">
+                    <label for="linkedinField">LinkedIn Account</label>
+                    <input type="text" id="linkedinField" placeholder="Enter Your Linkedin Link" class="form-control" />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="githubField">GitHub Account</label>
+                    <input type="text" id="githubField" placeholder="Enter Your GitHub Link" class="form-control" />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="websiteField">Website Account</label>
+                    <input type="text" id="websiteField" placeholder="Enter Your Website Link" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Second Column -->
+                <h3>Professional Information</h3>
+                <div class="form-group mt-2">
+                    <label for="">Objectives</label>
+                    <textarea rows="2" placeholder="Enter Your Objectives" class="form-control"
+                        id="objectiveField"></textarea>
+                </div>
+                <div class="form-group mt-2" id="we">
+                    <label for="">Work Experience</label>
+                    <textarea rows="2" placeholder="Enter Your Work Experience" class="form-control weField"></textarea>
+
+                    <div class="container text-center mt-2" id="wkeAddBtn">
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="aq">
+                    <label for="">Academic Qualification</label>
+                    <textarea placeholder="Enter Your Academic Qualification" class="form-control aqField"
+                        rows="2"></textarea>
+
+                    <div class="container text-center mt-2" id="aqAddBtn">
+                        <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <!-- Extra Activities -->
+                <div class="form-group mt-2" id="ea">
+                    <label for="">Extra Activities</label>
+                    <textarea placeholder="Enter Your Extra Acivities" class="form-control eaField"
+                        rows="2"></textarea>
+
+                    <div class="container text-center mt-2" id="eaAddBtn">
+                        <button onclick="addNewEAField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+
+                <!-- Hobbies -->
+                <div class="form-group mt-2" id="hb">
+                    <label for="">Hobbies</label>
+                    <textarea placeholder="Enter Your Hobbies" class="form-control hobbiesField"
+                        rows="2"></textarea>
+
+                    <div class="container text-center mt-2" id="hbAddBtn">
+                        <button onclick="addNewHBField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center mt-2">
+                <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+            </div>
+        </div>
+
+        <!-- cv-template -->
+        <div class="container" id="cv-template">
+            <div class="row">
+                <div class="col-md-4 py-5 background text-center">
+                    <!-- 1st column -->
+                    <img src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg"
+                        alt="" class="img-fluid myimg" />
+
+                    <div class="container text-center">
+                        <p id="nameT1">Infotrixs Technologies</p>
+                        <p id="contactT">+919763033497, +919420247815</p>
+                        <p id="emailT">contact@infotrixs.com, hrteam@infotrixs.com</p>
+                        <p id="addressT">Chatrapati Sambhaji Nagar, MH</p>
+                        <hr />
+                        <p>
+                            <a id="linkedinT" href="#1">https://www.linkedin.com/company/infotrix</a>
+                        </p>
+                        <p>
+                            <a id="githubT" href="#2">https://github.com/infotrixs</a>
+                        </p>
+                        <p>
+                            <a id="websiteT" href="#3">https://infotrixs.com/</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-8 py-5">
+                    <!-- 2nd column -->
+                    <h1 id="nameT2" class="text-center" style="font-weight: 980;">Infotrixs Technologies</h1>
+                    <!-- Objective Cards -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Objectives</h3>
+                        </div>
+                        <div class="card-body">
+                            <p id="objectiveT">
+                                INFOTRIXS is a Software Development Company that specializes in providing software
+                                solutions. With a team of highly skilled professionals,
+                                we strive to deliver projects to our clients.
+                                INFOTRIXS is a dynamic software solutions provider that specializes in delivering
+                                cutting-edge services in website development,
+                                DevOps implementations, Python Programming,
+                                AWS Cloud solutions, and educational development services.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Academic Qualification -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Academic Qualification</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                            <ul id="aqT">
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Work Experience</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                            <ul id="weT">
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Extra Activities -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Extra Activities / Certifications / Projects</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                            <ul id="acepcT">
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hobbies -->
+                    <div class="card mt-4">
+                        <div class="card-header background">
+                            <h3>Hobbies</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                            <ul id="hobbiesT">
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, autem!</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="container mt-3 text-center">
+                        <button onclick="printCV()" class="btn background">
+                            Print CV
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="Script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
